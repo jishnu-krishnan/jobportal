@@ -13,8 +13,8 @@ export class AuthService {
   users: any=[];
   helper = new JwtHelperService();
 
-  userUrl:string = 'http://localhost:3000/users';
-  hrUrl:String = 'http://localhost:3000/hr';
+  // userUrl:string = 'http://localhost:3000/users';
+  // hrUrl:String = 'http://localhost:3000/hr';
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
@@ -22,71 +22,71 @@ export class AuthService {
 
   // Candidate registraction
   registerUser(user): Observable<any> {
-    let url= `${this.userUrl}/register/`
+    let url= `users/register/`
     //console.log(user)
     return this.http.post(url, user,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // Company registraction
   registerCompany(company): Observable<any> {
-    let url= `${this.hrUrl}/register/`
+    let url= `hr/register/`
     return this.http.post(url, company,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // Authenfication of a user
   loginUser(user): Observable<any> {
-    let url= `${this.userUrl}/login/`
+    let url= `users/login/`
     return this.http.post(url, user,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // Get applications from applied candidates
   createNewVacancy(data): Observable<any> {
-    let url= `${this.hrUrl}/post/create/`
+    let url= `hr/post/create/`
     return this.http.post(url, data, {headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // Get applications from applied candidates
   getApplications(hr): Observable<any> {
-    let url= `${this.hrUrl}/get/applications/${hr}`
+    let url= `hr/get/applications/${hr}`
     return this.http.get(url, {headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // Get vacancy post 
   getVacancyPost(id): Observable<any> {
-    let url= `${this.hrUrl}/get/vacancy/${id}`
+    let url= `hr/get/vacancy/${id}`
     return this.http.get(url, {headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // apply for a job post
   applyVacancyPost(data): Observable<any> {
-    let url= `${this.userUrl}/request`
+    let url= `users/request`
     return this.http.post(url, data,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   // get applied job for a user
   appliedPost(uid): Observable<any> {
-    let url= `${this.userUrl}/request/${uid}`
+    let url= `users/request/${uid}`
     return this.http.get(url,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
   // Get vacancy post 
   getUserSuggestionPost(data): Observable<any> {
-    let url= `${this.userUrl}/jobs`
+    let url= `users/jobs`
     return this.http.post(url, data,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   
   getSuggestionPost(): Observable<any> {
-    let url= `${this.userUrl}/all/jobs`
+    let url= `users/all/jobs`
     return this.http.get(url,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
   deleteVacancyPost(id): Observable<any> {
-    let url= `${this.hrUrl}/post/delete/${id}`
+    let url= `hr/post/delete/${id}`
     return this.http.delete(url, {headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
   
   updateSkill(data,id): Observable<any> {
-    let url= `${this.userUrl}/profile/${id}`
+    let url= `users/profile/${id}`
     return this.http.put(url,data,{headers:this.headers} ).pipe(catchError(this.errorMgmt))
   }
 
