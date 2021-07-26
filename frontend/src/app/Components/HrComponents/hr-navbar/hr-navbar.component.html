@@ -1,0 +1,15 @@
+<div class="navbar-fixed">
+    <nav class="toolbar">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><i class="fab fa-app-store fa-lg"></i>Job Portal</a>
+        <ul class="right hide-on-med-and-down">
+          <li *ngIf="!authService.loggedIn();" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/hr/dashboard']">Dashboard</a></li>
+          <li *ngIf="!authService.loggedIn();" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/hr/vacancy']">Vacancy</a></li>
+          <li *ngIf="authService.loggedIn();" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/']">Home</a></li>
+          <li *ngIf="authService.loggedIn();" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/login']">Login</a></li>
+          <li *ngIf="authService.loggedIn();" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/users/register']">Register</a></li>
+          <li *ngIf="!authService.loggedIn();"><a (click)='onLogoutClick()'>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+</div> 

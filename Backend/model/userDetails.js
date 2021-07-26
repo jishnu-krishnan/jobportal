@@ -8,7 +8,7 @@ const UserDetailedSchema = mongoose.Schema({
     },
     expirence: {
         type:String,
-        enum:['fresher','1-3','4-6','7-10','10-above']
+        // enum:['fresher','1-3','4-6','7-10','10-above']
     },
     qualification: {
         type: String,

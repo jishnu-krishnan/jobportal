@@ -1,0 +1,85 @@
+<app-hr-navbar></app-hr-navbar>
+<app-add-button></app-add-button>
+<div class="container">
+    <div class="card">
+    <h3>Create New Job Notification</h3>
+    <div class="row">
+        <form [formGroup]="vacancyForm" (submit)="onSubmit()" class="col s12">
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="title" >
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.title.errors?.required">
+                        *Job title is required.
+                    </div> 
+                    <label for="title">Job title</label>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="qualification" >
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.qualification.errors?.required">
+                        *qualification is required.
+                    </div> 
+                    <label for="qualification">Qualification</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="skillset" >
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.skillset.errors?.required">
+                        *Skill set is required.
+                    </div> 
+                    <label for="skillset">Skill set</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="expirence" >
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.expirence.errors?.required">
+                        *Enter required expirence.
+                    </div> 
+                    <label for="expirence">Expirence</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="vacancies" >
+                    <label for="vacancies">No.of vacancies</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="package" >
+                    <label for="package">Salary package</label>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="input-field">
+                    <input type="text" formControlName="body" >
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.body.errors?.required">
+                        *Description is required.
+                    </div> 
+                    <label for="body">Description</label>
+                </div>
+            </div> -->
+            
+            <div class="row">
+                <label for="description">Description</label>
+                <div class="input-field">
+                    
+                    <ckeditor [editor]="Editor" formControlName="body" ></ckeditor>
+                </div>
+            </div>
+            <div class="invalid-feedback">{{found}} </div>
+    
+            <div class="row">
+                <input type="submit" value="Save" class="btn blue">
+                <input type="reset" value="Cancel" class="btn orange">
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    

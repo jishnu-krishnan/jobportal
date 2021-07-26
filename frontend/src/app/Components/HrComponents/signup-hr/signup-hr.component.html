@@ -1,0 +1,51 @@
+<app-user-navbar></app-user-navbar>
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <form [formGroup]="hrRegForm"  (submit)="onRegisterSubmit()">
+            <h1>Create Account</h1>
+            <br>
+            
+            <input type="text" placeholder="Commpany Name" formControlName="name" />
+            <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
+                *Company name is required.
+            </div>
+
+            <input type="text" placeholder="Location" formControlName="loc" />
+            <div class="invalid-feedback" *ngIf="submitted && myForm.loc.errors?.required">
+                *Company location is required.
+            </div>
+
+            <input type="text" placeholder="Industry Type" formControlName="industryType"/>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.industryType.errors?.required">
+                *Industry type is required.
+            </div>
+
+            <input type="password" placeholder="Password" formControlName="password"/>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.required">
+                *Password is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.pattern">
+                *Use minimum 8 digits including one number and speacial character.
+            </div>
+
+            <div class="invalid-feedback">{{found}} </div>
+            <button>Sign Up</button>
+            <br>
+        </form>
+    </div>
+    
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn" [routerLink]="['/hr/register']">Sign up with Recruiter </button>
+                <button class="ghost" id="signIn" [routerLink]="['/users/register']">Sign up with Job Seeker </button>
+                <button class="ghost" id="signIn" [routerLink]="['/login']">Sign In</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+    

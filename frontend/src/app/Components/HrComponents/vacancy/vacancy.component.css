@@ -1,0 +1,40 @@
+.card{
+    padding: .25em 2em;
+}
+
+.btn{
+    margin-right: 15px;
+}
+
+.invalid-feedback{
+    color: red;
+}
+
+/* label color */
+.input-field label {
+    color: rgb(76, 34, 228);
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: rgb(91, 58, 240);
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(76, 34, 228);
+    box-shadow: 0 1px 0 0 rgb(224, 30, 30);
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid rgb(22, 219, 38);
+    box-shadow: 0 1px 0 0 rgb(25, 219, 51);
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid rgb(235, 23, 23);
+    box-shadow: 0 1px 0 0 rgb(247, 24, 24);
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: rgb(26, 96, 189);
+  }
+  

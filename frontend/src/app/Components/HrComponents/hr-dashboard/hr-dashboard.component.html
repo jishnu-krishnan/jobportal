@@ -1,0 +1,82 @@
+<app-hr-navbar></app-hr-navbar>
+<app-add-button></app-add-button>
+<section id="banner">
+    <div class="inner">
+      <h1 style="color: blue;">Welcome {{profile}}</h1>
+    </div>
+  </section>
+<!-- </div> -->
+
+<div class="container">
+  <ul class="tabs tabs-transparent center">
+
+    <!-- <li class="tab"><a [routerLink]="['/hr/dashboard']" >BookMark</a></li>
+    <li class="tab"><a [routerLink]="['/hr/dashboard']" >Content</a></li>-->
+    <li class="tab sp"><a [routerLink]="['/hr/dashboard']"> 
+      
+     <form action="">
+       <div class="form-group">
+         <input type="text" name="searchText"  placeholder="Search" [(ngModel)]="searchText">
+       </div>
+     </form>
+      </a>
+    </li>
+  </ul>
+</div> 
+<div class="container" *ngIf="post==''" style="width:100% ;">
+  <div class="center"><h5 style="color: red;">Nothing you are created!</h5> </div>
+</div>
+<div class="container" *ngIf="post!=''" style=" width:100% ;">
+  
+  <div class="row">
+    <div class="col s12 m6 l3" *ngFor="let val of post | filter: searchText; let i=index">
+      <div class="card">
+        <div class="card-image" >
+            <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="onDelete(val._id)"><i class="fas fa-times"></i></a>
+        </div>
+
+        <div class="card-content">
+          <h5 class="center"><a [routerLink]="['/hr/vacancy/view',val._id]">{{val.jobTitle}}</a></h5>
+          <p><b>Qualification:</b>{{val.qualification}}</p>
+          <p><b>Skill set:</b>{{val.skillset}}</p>
+          <p><b>Expirence:</b>{{val.requiredExpirence}}</p>
+          <p><b>Salary:</b>{{val.package}}</p>
+          <p><b>Vacancies:</b>{{val.vacancies}}</p>
+          <p><b>Job description:</b><span [innerHTML]="(val.description.length>100)? (val.description | slice:0:100)+'...':(val.description)"></span>
+          </p>
+          <!-- <p [innerHTML]="(val.description.length>200)? (val.description | slice:0:200)+' ':(val.description)"></p> -->
+            <!-- <a *ngIf="val.body.length>200" [routerLink]="['/content/view',val._id]">View More.....</a> -->
+          <br/>
+        </div>
+        <div class="center">          
+        <a class="btn blue" [routerLink]="['/hr/vacancy/view',val._id]">View Application</a>              
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="center" *ngIf="temp > 8 "> 
+    <button class="btn blue" (click)='showMore()' onClick = "this.style.visibility= 'hidden';" >Show more</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <p class="copyright-text" style="float: left;" >Copyright &copy; 2020 All Rights Reserved by 
+        <a href="/">Job Portal</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <ul class="social-icons">
+        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+      </ul>
+    </div>
+  </div>
+</div>
+</footer>

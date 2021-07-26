@@ -1,0 +1,73 @@
+<app-user-navbar></app-user-navbar>
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <form [formGroup]="userRegForm"  (submit)="onRegisterSubmit()">
+            <h1>Create Account</h1>
+            <br>
+            
+            <input type="text" placeholder="Name" formControlName="username" />
+            <div class="invalid-feedback" *ngIf="submitted && myForm.username.errors?.required">
+                *Name is required.
+            </div>
+            <div class="genderbtn">
+                <label>
+                    <input class="with-gap" value="male" name="gender" type="radio" formControlName="gender"/>
+                    <span>Male</span>
+                </label>
+                <label>
+                    <input class="with-gap" value="female" name="gender" type="radio" formControlName="gender"/>
+                    <span>Female</span>
+                </label>
+                <label>
+                    <input class="with-gap" value="others" name="gender" type="radio" formControlName="gender"/>
+                    <span>Others</span>
+                </label>
+            </div>
+            <!-- <input type="radio" value="female" name="gender" formControlName="gender">Female
+            <input type="radio" value="male" name="gender" formControlName="gender">Male -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.gender.errors?.required">
+                *Choose gender.
+            </div>
+
+            <input type="text" placeholder="Phone no" formControlName="phone" />
+            <div class="invalid-feedback" *ngIf="submitted && myForm.phone.errors?.required">
+                *Phone number is required.
+            </div>
+
+            <input type="email" placeholder="Email" formControlName="mail"/>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.mail.errors?.required">
+                *Mail id is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.mail.errors?.pattern">
+                *Enter valid email.
+            </div>
+
+            <input type="password" placeholder="Password" formControlName="password"/>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.required">
+                *Password is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.pattern">
+                *Use minimum 8 digits including one number and speacial character.
+            </div>
+
+            <div class="invalid-feedback">{{found}} </div>
+            <button>Sign Up</button>
+            <br>
+        </form>
+    </div>
+    
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn" [routerLink]="['/hr/register']">Sign up with Recruiter </button>
+                <button class="ghost" id="signIn" [routerLink]="['/users/register']">Sign up with Job Seeker </button>
+                <button class="ghost" id="signIn" [routerLink]="['/login']">Sign In</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+    

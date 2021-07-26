@@ -25,7 +25,18 @@ const UserSchema = mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now()
+        //default: Date.now()
+    },
+    expirence: {
+        type:String,
+        //enum:['fresher','1-3','4-6','7-10','10-above']
+    },
+    qualification: {
+        type: String,
+        // required:true
+    },
+    skillset: {
+        type: String
     }
 });
 

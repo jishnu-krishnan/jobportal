@@ -1,0 +1,73 @@
+<app-hr-navbar></app-hr-navbar>
+<app-add-button></app-add-button>
+<section id="banner">
+  <div class="inner">
+    <h1 style="color: blue;">Applications</h1>
+  </div>
+</section>
+<div class="container">
+  <ul class="tabs tabs-transparent center">
+
+    <!-- <li class="tab"><a [routerLink]="['/hr/dashboard']" >BookMark</a></li>
+    <li class="tab"><a [routerLink]="['/hr/dashboard']" >Content</a></li>-->
+    <li class="tab sp"><a [routerLink]="['/hr/vacancy/view/',id]"> 
+      
+     <form action="">
+       <div class="form-group">
+         <input type="text" name="searchText"  placeholder="Search" [(ngModel)]="searchText">
+       </div>
+     </form>
+      </a>
+    </li>
+  </ul>
+</div> 
+<div class="container" *ngIf="post==''" style="width:100% ;">
+  <div class="center"><h5 style="color: red;">Nothing you are created!</h5> </div>
+</div>
+<div class="container" *ngIf="post!=''" style="width:100% ;">
+  <div class="row">
+    <div class="col s12 m6 l3" *ngFor="let val of post | filter: searchText; let i=index">
+      <div class="card">
+        <!-- <div class="card-image" >
+            <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="onDelete(val._id)"><i class="fas fa-times"></i></a>
+        </div> -->
+        <div class="card-content">
+          
+          <h5 class="center"><a >{{val.vacancyPost.jobTitle}}</a></h5>
+          <p><b>Name:</b>{{val.user.username }}</p>
+          <p><b>Qualification:</b>{{val.user.qualification}}</p>
+          <p><b>Skill set:</b>{{val.user.skillset}}</p>
+          <p><b>Mail id:</b> {{val.user.mailId}}</p>
+          <p><b>Phone no:</b> {{val.user.phone}}</p>
+          <p><b>Expirence:</b>{{val.user.expirence}}</p>
+          <!-- <p><b>Job description:</b>{{(val.vacancyPost.description.length>100)? (val.vacancyPost.description | slice:0:100)+'...':(val.vacancyPost.description)}}</p> -->
+            <!-- <a *ngIf="val.body.length>200" [routerLink]="['/content/view',val._id]">View More.....</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center" *ngIf="temp > 8 "> 
+    <button class="btn blue" (click)='showMore()' onClick = "this.style.visibility= 'hidden';" >Show more</button>
+  </div>
+</div>
+<footer class="site-footer">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <p class="copyright-text" style="float: left;" >Copyright &copy; 2020 All Rights Reserved by 
+        <a href="/">Job Portal</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <ul class="social-icons">
+        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+      </ul>
+    </div>
+  </div>
+</div>
+</footer>
